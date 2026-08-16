@@ -1,6 +1,7 @@
 # Godot 4 editor cache
 .godot/
 
-# Exports
+# Exports and assembled site
 /build/
+/dist/
 /export/

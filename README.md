@@ -13,10 +13,21 @@ or the number keys.
 
 ## Run it in a browser
 
-**https://researchase.github.io/resin-printing-workshop/**
+| | |
+|---|---|
+| Landing page | **https://researchase.github.io/resin-printing-workshop/** |
+| The lab itself | **https://researchase.github.io/resin-printing-workshop/lab/** |
 
-No install, works on any machine including a Mac with no Godot on it. It is a ~37 MB
-download on first load, so open it once before the session and let it cache.
+No install, works on any machine including a Mac with no Godot on it. The lab is a
+~37 MB download on first load, so open it once before the session and let it cache.
+
+The landing page (`site/`) tells the workshop story — photo of a cat, AI-generated 3D
+model you can spin in the browser, a tray of printed cats — and links through to the lab.
+`./build_site.sh` assembles both into `dist/`: the landing page at the root, the Godot
+deck at `/lab/`. Deploy the contents of `dist/` to the `gh-pages` branch.
+
+Workshop quotes live in `site/app.js` as the `QUOTES` array, and ship as clearly-marked
+placeholders until real ones replace them.
 
 ## Running it locally
 
