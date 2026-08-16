@@ -11,22 +11,11 @@
 
 const QUOTES = [
   {
-    text: "Replace this with something a student said when they first held their printed cat.",
-    who: "Student name",
-    role: "Age 11",
-    placeholder: true,
-  },
-  {
-    text: "Replace this with a parent's or teacher's reaction to the workshop.",
-    who: "Parent or teacher name",
-    role: "School or city",
-    placeholder: true,
-  },
-  {
-    text: "Replace this with the moment someone realised a whole tray prints as fast as one.",
-    who: "Student name",
-    role: "Age 13",
-    placeholder: true,
+    // Posted in the school parents' group after the workshop. Quoted verbatim.
+    text: "Кому что, а нам котиков и побольше 🐈‍⬛🐈‍⬛🐈‍⬛ Thank a lot @researchase for a fun hands on experience with 3D printer",
+    note: "“To each their own — for us it's cats, and more of them.”",
+    who: "Ekaterina L.",
+    role: "Parent, school group",
   },
 ];
 
@@ -39,10 +28,13 @@ function renderQuotes() {
     grid.closest("section").hidden = true;
     return;
   }
+  // a lone quote reads better as one centred pull-quote than a stranded card
+  grid.classList.toggle("single", QUOTES.length === 1);
   grid.innerHTML = QUOTES.map((q) => `
     <figure class="quote io">
       ${q.placeholder ? '<span class="quote-tag">placeholder — edit me</span>' : ""}
       <blockquote class="quote-text">${escapeHtml(q.text)}</blockquote>
+      ${q.note ? `<p class="quote-note">${escapeHtml(q.note)}</p>` : ""}
       <figcaption class="quote-who">
         ${escapeHtml(q.who)}${q.role ? ` <span class="quote-role">· ${escapeHtml(q.role)}</span>` : ""}
       </figcaption>

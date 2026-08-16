@@ -449,12 +449,41 @@ model-viewer {
   margin: 0 0 1.4rem;
   position: relative;
 }
+.quote-note {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--dimmer);
+  margin: -0.6rem 0 1.3rem;
+}
 .quote-who {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   color: var(--dim);
   margin: 0;
+}
+
+/* one quote on its own: centred pull-quote rather than a stranded card */
+.quote-grid.single {
+  grid-template-columns: minmax(0, 760px);
+  justify-content: center;
+}
+.quote-grid.single .quote {
+  text-align: center;
+  padding: 3rem 2.4rem 2.2rem;
+  background: linear-gradient(180deg, var(--ink-2), var(--ink));
+}
+.quote-grid.single .quote::before {
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 5.4rem;
+  top: -0.05em;
+}
+.quote-grid.single .quote-text {
+  font-size: clamp(1.3rem, 2.4vw, 1.85rem);
+  line-height: 1.35;
+  text-wrap: balance;
 }
 .quote-role { color: var(--dimmer); }
 .quote-tag {
