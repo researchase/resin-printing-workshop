@@ -2,6 +2,29 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<!-- Google tag (gtag.js) — G-81ZSMSWMWG -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-81ZSMSWMWG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // Consent Mode v2. Ads storage stays off everywhere — nothing here runs ads.
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'granted'
+  });
+  // EEA/UK/CH: no analytics cookie without consent. Google fills the gap with
+  // modelled data instead. Swap to a consent banner if full EEA data is needed.
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IS','IE','IT','LV','LI','LT','LU','MT','NL','NO','PL','PT','RO','SK','SI','ES','SE','GB','CH']
+  });
+
+  gtag('js', new Date());
+  gtag('config', 'G-81ZSMSWMWG');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>One photo, two hours, a pocketful of cats — Researchase</title>
 <meta name="description" content="How a Researchase workshop turned a photograph of a cat into a 3D model with AI, then resin-printed a tray of them in two hours.">
@@ -11,8 +34,8 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐈‍⬛</text></svg>">
 <link rel="preload" href="assets/fonts/fraunces-400_700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/fonts.css?v=5">
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="assets/fonts.css?v=6">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -224,6 +247,6 @@
 </footer>
 
 <script type="module" src="assets/model-viewer.min.js"></script>
-<script src="app.js?v=5"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>

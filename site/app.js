@@ -74,5 +74,50 @@ function observeReveals() {
   targets.forEach((el) => io.observe(el));
 }
 
+/* ------------------------------------------------------------- analytics */
+// Named events so the funnel is readable in GA4: how many arrive, how many read
+// it, how many actually open the simulator — and from which link.
+
+function trackEngagement() {
+  if (typeof gtag !== "function") return;
+
+  const LAB = "researchase.github.io";
+  const placement = (a) => {
+    if (a.closest(".topbar")) return "nav";
+    if (a.closest(".hero")) return "hero";
+    if (a.closest(".cta")) return "cta_band";
+    if (a.closest(".foot")) return "footer";
+    return "in_page";
+  };
+
+  document.querySelectorAll("a[href]").forEach((a) => {
+    if (!a.href.includes(LAB)) return;
+    a.addEventListener("click", () => {
+      // the conversion worth optimising for: someone opened the lab
+      gtag("event", "lab_open", { placement: placement(a), link_url: a.href });
+    });
+  });
+
+  // the AI-generated model is the centrepiece — did anyone actually spin it?
+  const mv = document.querySelector("model-viewer");
+  if (mv) {
+    let spun = false;
+    mv.addEventListener("camera-change", (e) => {
+      if (spun || e.detail?.source !== "user-interaction") return;
+      spun = true;
+      gtag("event", "model_rotated");
+    });
+  }
+
+  // read depth, so a bounce off the hero is distinguishable from a real read
+  let deep = false;
+  window.addEventListener("scroll", () => {
+    if (deep) return;
+    const seen = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
+    if (seen > 0.6) { deep = true; gtag("event", "read_deep"); }
+  }, { passive: true });
+}
+
 renderQuotes();
 observeReveals();
+trackEngagement();
