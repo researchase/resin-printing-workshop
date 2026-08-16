@@ -41,7 +41,7 @@ func _build_3d() -> void:
 
 	var env := Environment.new()
 	env.background_mode = Environment.BG_COLOR
-	env.background_color = UIKit.C_BG
+	env.background_color = Color(0.006, 0.007, 0.011)
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	env.ambient_light_color = Color(0.35, 0.38, 0.5)
 	env.ambient_light_energy = 0.5

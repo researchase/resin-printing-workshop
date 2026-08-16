@@ -11,11 +11,33 @@ or the number keys.
 | 3 | **The printer** | A working MSLA machine printing layer by layer, with the live LCD mask |
 | 4 | **Safety** | Why resin needs gloves, ventilation and proper disposal |
 
-## Running it
+## Run it in a browser
+
+**https://researchase.github.io/resin-printing-workshop/**
+
+No install, works on any machine including a Mac with no Godot on it. It is a ~37 MB
+download on first load, so open it once before the session and let it cache.
+
+## Running it locally
 
     godot --path /path/to/ResinPrinterSim
 
-or open the project in the Godot editor and press F5. Requires Godot 4.7.
+or open the project in the Godot editor and press F5. Runs on Godot 4.6 and 4.7.
+
+### Rebuilding the web version
+
+The web build is a single-threaded export, which is what lets it run on GitHub Pages
+without cross-origin isolation headers. Godot 4.6 export templates must be installed.
+
+    godot --headless --path . --export-release "Web" build/web/index.html
+    touch build/web/.nojekyll
+
+Then publish the contents of `build/web/` to the `gh-pages` branch. Note the web build
+uses Godot's **Compatibility** renderer, which does not tonemap the environment
+background and lights the scene more flatly than Forward+ on the desktop — hence the very
+dark background colours in the three 3D screens. Check any lighting change in both:
+
+    godot --path . --rendering-method gl_compatibility
 
 Launch flags (handy for jumping straight to a setup mid-class):
 

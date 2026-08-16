@@ -227,10 +227,16 @@ func _build_ui() -> void:
 	side.add_theme_stylebox_override("panel", _stylebox(C_PANEL, Color(0, 0, 0, 0), 0, 0))
 	row.add_child(side)
 
+	# scrolls if the window is short - the web build can land on any canvas size
+	var scroll := ScrollContainer.new()
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	side.add_child(scroll)
+
 	var margin := MarginContainer.new()
+	margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	for s in ["margin_left", "margin_right", "margin_top", "margin_bottom"]:
 		margin.add_theme_constant_override(s, 18)
-	side.add_child(margin)
+	scroll.add_child(margin)
 
 	var col := VBoxContainer.new()
 	col.add_theme_constant_override("separation", 10)

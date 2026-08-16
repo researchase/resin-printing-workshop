@@ -101,7 +101,7 @@ func _ready() -> void:
 
 func _card(tag: String, tag_color: Color, title: String, body: String, why: String) -> PanelContainer:
 	var card := UIKit.card(UIKit.C_PANEL, UIKit.C_PANEL2, 1)
-	card.custom_minimum_size = Vector2(430, 0)
+	card.custom_minimum_size = Vector2(370, 0)
 	card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var v := VBoxContainer.new()
 	v.add_theme_constant_override("separation", 6)

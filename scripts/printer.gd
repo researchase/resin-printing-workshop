@@ -100,10 +100,13 @@ func _marker(pos: Vector3, text: String, parent: Node3D) -> Node3D:
 func _build_environment() -> void:
 	var env := Environment.new()
 	env.background_mode = Environment.BG_COLOR
-	env.background_color = Color(0.045, 0.05, 0.07)
+	# Kept very dark in linear terms: the Compatibility renderer (used by the web
+	# build) does not tonemap the background, so a "dark" colour there comes out
+	# roughly four times lighter than it does under Forward+.
+	env.background_color = Color(0.006, 0.007, 0.011)
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	env.ambient_light_color = Color(0.42, 0.46, 0.58)
-	env.ambient_light_energy = 0.65
+	env.ambient_light_energy = 0.45
 	env.glow_enabled = true
 	env.glow_intensity = 0.45
 	env.glow_bloom = 0.08
@@ -149,7 +152,7 @@ func _build_machine() -> void:
 
 
 func _build_vat() -> void:
-	var glass := _glass(Color(0.55, 0.68, 0.82, 0.07))
+	var glass := _glass(Color(0.55, 0.68, 0.82, 0.045))
 	var rim := _mat(Color(0.22, 0.24, 0.30), 0.45, 0.6)
 	var ow := BUILD_W + 0.9
 	var od := BUILD_D + 0.9
@@ -163,7 +166,7 @@ func _build_vat() -> void:
 	_box(Vector3(ow + 0.3, 0.22, od + 0.3), Vector3(0, VAT_H + 0.11, 0), rim, self)
 
 	# liquid resin
-	var resin := _glass(Color(0.72, 0.36, 0.10, 0.07))
+	var resin := _glass(Color(0.72, 0.36, 0.10, 0.05))
 	resin.roughness = 0.45
 	resin.metallic = 0.0
 	_box(Vector3(ow - 0.3, RESIN_LEVEL, od - 0.3), Vector3(0, RESIN_LEVEL * 0.5, 0), resin, self)
