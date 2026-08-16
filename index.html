@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Google tag (gtag.js) — G-81ZSMSWMWG -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-81ZSMSWMWG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // Consent Mode v2. Ads storage stays off everywhere — nothing here runs ads.
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'granted'
+  });
+  // EEA/UK/CH: no analytics cookie without consent. Google fills the gap with
+  // modelled data instead. Swap to a consent banner if full EEA data is needed.
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IS','IE','IT','LV','LI','LT','LU','MT','NL','NO','PL','PT','RO','SK','SI','ES','SE','GB','CH']
+  });
+
+  gtag('js', new Date());
+  gtag('config', 'G-81ZSMSWMWG');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One photo, two hours, a pocketful of cats — Researchase</title>
+<meta name="description" content="How a Researchase workshop turned a photograph of a cat into a 3D model with AI, then resin-printed a tray of them in two hours.">
+<meta property="og:title" content="One photo, two hours, a pocketful of cats">
+<meta property="og:description" content="A Researchase 3D resin printing workshop: photo → AI 3D model → a tray of tiny cats.">
+<meta property="og:image" content="assets/printed-cats.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐈‍⬛</text></svg>">
+<link rel="preload" href="assets/fonts/fraunces-400_700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css?v=6">
+<link rel="stylesheet" href="styles.css?v=6">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="mark" href="#top">
+    <span class="mark-dot" aria-hidden="true"></span>
+    Researchase
+  </a>
+  <nav class="topnav">
+    <a href="#story">The story</a>
+    <a href="#model">The model</a>
+    <a class="topnav-cta" href="https://researchase.github.io/resin-printing-workshop/lab/" target="_blank" rel="noopener">Resin Lab <span aria-hidden="true">↗</span></a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="kicker reveal" style="--d:0ms">Workshop · 3D resin printing</p>
+        <h1 class="reveal" style="--d:80ms">
+          One photo.<br>
+          Two hours.<br>
+          <em>A pocketful<br>of cats.</em>
+        </h1>
+        <p class="lede reveal" style="--d:200ms">
+          We handed a class one photograph of a cat, turned it into a 3D model with AI,
+          and pulled a tray of tiny resin cats out of the machine before the session was over.
+        </p>
+        <div class="hero-actions reveal" style="--d:300ms">
+          <a class="btn btn-primary" href="https://researchase.github.io/resin-printing-workshop/lab/" target="_blank" rel="noopener">
+            Open the Resin Lab
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="btn btn-ghost" href="#story">See how it was made</a>
+        </div>
+      </div>
+
+      <figure class="hero-shot reveal" style="--d:380ms">
+        <img src="assets/printed-cats.jpg" width="1280" height="960"
+             alt="Two small black resin-printed cats standing on a stone paving slab in front of grass.">
+        <figcaption>Straight off the build plate, washed and cured.</figcaption>
+      </figure>
+    </div>
+    <div class="layerlines" aria-hidden="true"></div>
+  </section>
+
+  <!-- ============================ 01 SOURCE ============================ -->
+  <section class="step" id="story">
+    <div class="step-grid">
+      <figure class="shot shot-tilt-l">
+        <img src="assets/source-cat.jpg" width="854" height="1290" loading="lazy"
+             alt="Photograph of a white cat with tabby markings, sitting and facing the camera.">
+      </figure>
+      <div class="step-copy">
+        <p class="stepno">01 — the source</p>
+        <h2>It starts with one ordinary photo.</h2>
+        <p>
+          No scanner, no turntable, no modelling software. A single picture of a cat,
+          sitting still enough for one frame. That is the entire input.
+        </p>
+        <p class="muted">
+          The point of the exercise is that the barrier is gone. A student who has never
+          opened a 3D program can hold a physical object that started as something they
+          photographed.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 02 AI → 3D ============================ -->
+  <section class="step step-model" id="model">
+    <div class="model-head">
+      <p class="stepno">02 — photo to mesh</p>
+      <h2>AI guesses the other side of the cat.</h2>
+      <p class="lede-2">
+        An image-to-3D model takes the single photograph and infers the whole shape — the
+        back, the far flank, the parts the camera never saw — then paints a texture over it.
+        What comes back is a real, printable mesh in about a minute.
+      </p>
+    </div>
+
+    <div class="viewer-wrap">
+      <div class="viewer-glow" aria-hidden="true"></div>
+      <model-viewer
+        src="assets/cat.glb"
+        alt="Interactive 3D model of a cat, generated from a single photograph."
+        camera-controls
+        auto-rotate
+        rotation-per-second="16deg"
+        interaction-prompt="none"
+        shadow-intensity="0.9"
+        shadow-softness="0.8"
+        exposure="1.15"
+        environment-image="neutral"
+        camera-orbit="25deg 78deg auto"
+        camera-target="auto auto auto"
+        min-field-of-view="16deg"
+        max-field-of-view="38deg"
+        touch-action="pan-y"
+        loading="lazy">
+        <div class="poster" slot="poster">
+          <span class="spinner" aria-hidden="true"></span>
+          <span>loading the mesh…</span>
+        </div>
+        <div class="viewer-hint" slot="interaction-prompt">drag to spin</div>
+      </model-viewer>
+      <p class="viewer-cap">
+        <span class="dot" aria-hidden="true"></span>
+        Drag to spin · scroll to zoom
+      </p>
+    </div>
+
+    <div class="specs">
+      <div class="spec">
+        <span class="spec-k">Input</span>
+        <span class="spec-v">1 photograph</span>
+      </div>
+      <div class="spec">
+        <span class="spec-k">Generated mesh</span>
+        <span class="spec-v">1,917,229 triangles</span>
+      </div>
+      <div class="spec">
+        <span class="spec-k">Shown above</span>
+        <span class="spec-v">80,000 triangles</span>
+      </div>
+      <div class="spec">
+        <span class="spec-k">Modelling experience</span>
+        <span class="spec-v">None required</span>
+      </div>
+    </div>
+    <p class="footnote">
+      The model above is the actual mesh the AI produced, decimated from 1.9 million
+      triangles to 80,000 so it loads in a browser. Everything you can spin is what went
+      to the printer.
+    </p>
+  </section>
+
+  <!-- ============================ 03 PRINTED ============================ -->
+  <section class="step step-print">
+    <div class="step-grid step-grid-rev">
+      <div class="step-copy">
+        <p class="stepno">03 — two hours later</p>
+        <h2>A whole tray, in the time it takes to print one.</h2>
+        <p>
+          An LCD resin printer cures an entire layer in a single flash of UV light. Filling
+          the plate with cats costs nothing extra — twenty of them take the same two hours
+          as one, because every layer is exposed all at once.
+        </p>
+        <p class="muted">
+          That is the idea the whole workshop is built around, and it is the thing students
+          find hardest to believe until they watch it happen.
+        </p>
+        <a class="inline-link" href="https://researchase.github.io/resin-printing-workshop/lab/" target="_blank" rel="noopener">See it running in the Resin Lab →</a>
+      </div>
+      <figure class="shot shot-tilt-r">
+        <img src="assets/cats-in-hands.jpg" width="1280" height="964" loading="lazy"
+             alt="Two children's open hands holding three tiny black resin-printed cats.">
+        <figcaption>Small enough to lose in a pocket. That is the point.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================ TESTIMONIALS ============================ -->
+  <section class="voices" id="voices">
+    <p class="stepno center">04 — what they said</p>
+    <h2 class="center">Straight from the workshop.</h2>
+    <div class="quote-grid" id="quote-grid"><!-- rendered from QUOTES in app.js --></div>
+  </section>
+
+  <!-- ============================ CTA ============================ -->
+  <section class="cta">
+    <div class="cta-glow" aria-hidden="true"></div>
+    <div class="cta-inner">
+      <p class="kicker">The interactive lab</p>
+      <h2>Watch a resin printer work,<br>one layer at a time.</h2>
+      <p class="lede-2">
+        A simulator that runs in your browser: the chemistry that makes liquid resin harden,
+        a working LCD printer building a part layer by layer, and the safety rules that go
+        with the real thing.
+      </p>
+      <a class="btn btn-primary btn-lg" href="https://researchase.github.io/resin-printing-workshop/lab/" target="_blank" rel="noopener">
+        Open the Resin Lab
+        <span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+      <p class="cta-note">Runs on any laptop. Nothing to install.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div>
+      <p class="mark mark-foot"><span class="mark-dot" aria-hidden="true"></span>Researchase</p>
+      <p class="muted small">3D resin printing workshop · Ashwin Venkat</p>
+    </div>
+    <nav class="foot-links">
+      <a href="https://researchase.github.io/resin-printing-workshop/lab/" target="_blank" rel="noopener">Resin Lab ↗</a>
+      <a href="https://github.com/researchase/resin-printing-workshop" target="_blank" rel="noopener noreferrer">Source ↗</a>
+      <a href="https://reasoning.school" target="_blank" rel="noopener noreferrer">Reasoning School ↗</a>
+    </nav>
+  </div>
+</footer>
+
+<script type="module" src="assets/model-viewer.min.js"></script>
+<script src="app.js?v=6"></script>
+</body>
+</html>
